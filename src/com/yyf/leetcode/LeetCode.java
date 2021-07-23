@@ -219,15 +219,41 @@ public class LeetCode {
         return index;
     }
 
-    public static void main(String[] ags) {
-        int[] nums = {2,3,3,2};
-        int length = removeElement01(nums, 2);
-        for (int i = 0; i < length; i++) {
-            System.out.println(nums[i]);
+
+    /**
+     * 实现strStr()函数。
+     * 给你两个字符串haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串出现的第一个位置（下标从 0 开始）。如果不存在，则返回 -1 。
+     * 说明：
+     * 当needle是空字符串时，我们应当返回什么值呢？这是一个在面试中很好的问题。
+     * 对于本题而言，当needle是空字符串时我们应当返回 0 。这与 C 语言的strstr()以及 Java 的indexOf()定义相符。
+     * 示例 1：
+     * 输入：haystack = "hello", needle = "ll"
+     * 输出：2
+     * 示例 2：
+     * 输入：haystack = "aaaaa", needle = "bba"
+     * 输出：-1
+     * 示例 3：
+     * 输入：haystack = "", needle = ""
+     * 输出：0
+     */
+
+    public static int strStr(String haystack, String needle) {
+        if("".equals(haystack) || "".equals(needle) || needle.length() < haystack.length() || needle.equals(haystack)){
+            return 0;
         }
-        System.out.println(Arrays.toString(Arrays.copyOf(nums, length)));
-        HashMap<String, String> map = new HashMap<>();
-        map.put("1","1");
+        int j = 0;
+        char a = needle.charAt(j);
+        for (int i = 0; i < haystack.length(); i++) {
+            char c = haystack.charAt(i);
+            if(c == a){
+
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] ags) {
+
     }
 }
 
