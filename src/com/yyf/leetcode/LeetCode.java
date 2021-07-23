@@ -226,6 +226,8 @@ public class LeetCode {
             System.out.println(nums[i]);
         }
         System.out.println(Arrays.toString(Arrays.copyOf(nums, length)));
+        HashMap<String, String> map = new HashMap<>();
+        map.put("1","1");
     }
 }
 

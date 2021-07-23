@@ -45,14 +45,4 @@ public class ArrayStack {
         System.out.println("size："+ size);
     }
 
-    public static void main(String[] args) {
-        ArrayStack arrayStack = new ArrayStack(2);
-        arrayStack.push(1);
-        arrayStack.push(2);
-        arrayStack.pop();
-        arrayStack.disPlay();
-        arrayStack.push(3);
-        arrayStack.push(4);
-        arrayStack.disPlay();
-    }
 }
