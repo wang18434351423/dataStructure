@@ -187,20 +187,9 @@ public class SimpleMap implements Map {
         if(oldLength > 0 && newTable.length > oldLength){
             for (int i = 0; i < oldLength; i++) {
                 Node node = table[i];
-                if(node != null){
-                    while (node != null) {
-                        int index = node.hashCode & (newTable.length - 1);
-                        if (newTable[index] == null) {
-                            newTable[index] = node;
-                        } else {
-                            Node tmp = newTable[index];
-                            while (tmp.next != null) {
-                                tmp = tmp.next;
-                            }
-                            tmp.next = node;
-                        }
-                        node = node.next;
-                    }
+                if (node != null) {
+                    int index = node.hashCode & (newTable.length - 1);
+                    newTable[index] = node;
                 }
             }
         }
@@ -270,9 +259,12 @@ public class SimpleMap implements Map {
         simpleMap.put("sdf10","10");
         simpleMap.put("sdf11","11");
         simpleMap.put("sdf12","12");
+        System.out.println(simpleMap.size);
+        System.out.println(simpleMap.keySet());
         simpleMap.put("sdf13","13");
         System.out.println(simpleMap.size);
         System.out.println(simpleMap.keySet());
         System.out.println(simpleMap.values());
+        System.out.println(simpleMap.table.length);
     }
 }
