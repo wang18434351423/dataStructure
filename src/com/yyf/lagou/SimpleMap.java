@@ -2,6 +2,8 @@ package com.yyf.lagou;
 
 import sun.awt.geom.AreaOp;
 
+import java.time.*;
+import java.time.temporal.TemporalAmount;
 import java.util.*;
 
 public class SimpleMap implements Map {
@@ -245,26 +247,8 @@ public class SimpleMap implements Map {
         }
     }
 
+
     public static void main(String[] args) {
-        SimpleMap simpleMap = new SimpleMap();
-        simpleMap.put("sda1","1");
-        simpleMap.put("qwd2","2");
-        simpleMap.put("asd3","3");
-        simpleMap.put("asa4","4");
-        simpleMap.put("fsd5","5");
-        simpleMap.put("gkf6","6");
-        simpleMap.put("afs7","7");
-        simpleMap.put("asd8","8");
-        simpleMap.put("gfg9","9");
-        simpleMap.put("sdf10","10");
-        simpleMap.put("sdf11","11");
-        simpleMap.put("sdf12","12");
-        System.out.println(simpleMap.size);
-        System.out.println(simpleMap.keySet());
-        simpleMap.put("sdf13","13");
-        System.out.println(simpleMap.size);
-        System.out.println(simpleMap.keySet());
-        System.out.println(simpleMap.values());
-        System.out.println(simpleMap.table.length);
+
     }
 }
