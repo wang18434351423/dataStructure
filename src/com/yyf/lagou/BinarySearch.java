@@ -1,97 +1,100 @@
 package com.yyf.lagou;
 
-import com.sun.xml.internal.bind.v2.model.core.EnumLeafInfo;
-import com.yyf.test.User;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 二分法查找
  */
 public class BinarySearch {
 
-    public static int func(int[] nums, int target){
-        int l = 0;
-        int r = nums.length - 1;
-        if(nums[l] > target || nums[r] < target){
-            return -1;
-        }
-        while (l <= r){
-            int mid = (l + r) / 2;
-            if (nums[mid] == target) return mid;
-            else if (nums[mid] < target) l = mid + 1;
-            else r = mid - 1;
-        }
-        return -1;
-    }
-
-    public static int func1(int[] nums, int target){
-        return func2(nums,0,nums.length - 1,target);
-    }
-
-    public static int func2(int[] nums, int l, int r, int target){
-        if (l > r) return -1;
-        int mid = (l + r) / 2;
-        if(nums[mid] == target){
-            return mid;
-        }else if(nums[mid] < target){
-            return func2(nums,mid + 1,r,target);
-        }else {
-            return func2(nums,l,mid - 1,target);
-        }
-    }
-
     /**
-     * 一个有序数组有一个数出现1次，其他数出现2次，
-     * 找出出现一次的数比如：1 1 2 2 3 3 4 4 5 5 6 6 7 出现1次的数是7
+     * 双指针查找
+     * @param nums 有序数组
+     * @param target 目标值
+     * @return 目标值下标 不存在为-1
      */
-    public static int func3(int[] nums){
-        for (int i = 0; i < nums.length; i++) {
-            if(i == 0){
-                if(nums[i] < nums[i + 1]){
-                    return nums[i];
-                }
-            }else if(i == nums.length - 1){
-                if(nums[i] > nums[i - 1]){
-                    return nums[i];
-                }
+    public static int func(int[] nums,int target){
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right){
+            int mid = (left + right) / 2;
+            if(nums[mid] == target){
+                return mid;
+            }else if (nums[mid] < target){
+                left = mid + 1;
             }else {
-                if (nums[i] < nums[i + 1] && nums[i] > nums[i -1]) {
-                    return nums[i];
-                }
+                right = mid - 1;
             }
         }
         return -1;
     }
 
-  /*  public static int func4(int[] nums){
-        return func5(nums,0,nums.length);
-    }*/
-/*
-    public static int func5(int[] nums,int l,int r){
-        if(l > r) return -1;
-        int mid = (l + r) / 2;
-        if(mid == 0 && nums[mid] < nums[mid + 1]){
-            return nums[mid];
-        }else if (mid == nums.length - 1 && nums[mid] >nums[mid -1]){
-            return nums[mid];
-        }else if(nums[mid] > nums[mid - 1] &&  nums[mid] < nums[mid + 1]){
-            return nums[mid];
+    /**
+     * 二分法查找递归实现
+     * @param nums 有序数组
+     * @param target 目标值
+     * @return 目标值下标 不存在为-1
+     */
+    public static int func1(int[] nums,int target){
+        return func2(nums,target,0,nums.length - 1);
+    }
+
+    /**
+     * - 函数的功能：在有序数组查找目标值的下标
+     * - 递归结束条件：左指针大于右指针时结束或找到相等的值结束
+     * - 函数的等价关系式：fun(nums[],target,left,right) = fun(nums[],target,mid + 1,right) or fun(nums[],target,left,mid - 1)
+     */
+    private static int func2(int[] nums, int target, int left, int right) {
+        if(left > right) return -1;
+        int mid = (left + right) / 2;
+        if (nums[mid] == target) return mid;
+        else if(nums[mid] < target) left = mid + 1;
+        else right = mid - 1;
+        return func2(nums,target,left,right);
+    }
+
+    /**
+     * 案例
+     * 一个有序数组有一个数出现1次，其他数出现2次，
+     * 找出出现一次的数比如：
+     * 1 1 2 2 3 3 4 4 5 5 6 6 7 出现1次的数是7
+     * 1 1 2 3 3 4 4 5 5 6 6 7 7 出现1次的数是2
+     * 0 1 2 3 4 5 6 7 8 9 10 11 12
+     */
+    private static int func3(int[] nums){
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right){
+            int mid = (left + right) / 2;
+            if(mid % 2 == 0){//如果是偶数
+                if (nums[mid] == nums[mid - 1]){
+                    //如果和前面相同,说明右边正确
+                    right = mid - 2;
+                }else {
+                    //和前面不同说明左边正确
+                    if(nums[mid] != nums[mid + 1]){
+                        return mid;
+                    }else {
+                        left = mid + 2;
+                    }
+                }
+            }else {//如果是奇数
+
+            }
         }
-        if()
-    }*/
+        return -1;
+    }
+
 
     public static void main(String[] args) {
-
-        LocalDateTime localDateTime = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-        LocalDateTime minus = localDateTime.minus(12, ChronoUnit.HOURS);
-        Date date = Date.from( minus.atZone( ZoneId.systemDefault()).toInstant());
-        System.out.println(date);
+        String str = "北京市";
+        String[] split = str.split("1");
+        int length = split.length;
+        System.out.println(Arrays.toString(split)+"   1   "+length);
     }
 
 }
