@@ -1,4 +1,4 @@
-package com.yyf.lagou.RBTree;
+package com.yyf.lagou.rbtree;
 
 public class RBNode {
     private int key;

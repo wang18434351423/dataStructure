@@ -1,4 +1,4 @@
-package com.yyf.lagou;
+package com.yyf.lagou.array;
 
 /**
  * 链表实现队列

@@ -1,4 +1,4 @@
-package com.yyf.lagou;
+package com.yyf.lagou.array;
 
 public class Node {
 

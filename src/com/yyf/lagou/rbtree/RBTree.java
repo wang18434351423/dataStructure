@@ -1,4 +1,4 @@
-package com.yyf.lagou.RBTree;
+package com.yyf.lagou.rbtree;
 
 public class RBTree {
     //根节点

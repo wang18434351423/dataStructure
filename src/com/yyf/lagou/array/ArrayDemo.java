@@ -1,4 +1,4 @@
-package com.yyf.lagou;
+package com.yyf.lagou.array;
 
 import java.util.Arrays;
 

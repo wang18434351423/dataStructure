@@ -1,12 +1,8 @@
-package com.yyf.lagou;
+package com.yyf.lagou.map;
 
-import sun.awt.geom.AreaOp;
-
-import java.time.*;
-import java.time.temporal.TemporalAmount;
 import java.util.*;
 
-public class SimpleMap implements Map {
+public class SimpleMap implements Map{
 
     private int size = 0;
     //初始化容量16
