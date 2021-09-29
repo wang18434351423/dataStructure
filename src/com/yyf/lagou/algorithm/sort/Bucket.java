@@ -1,4 +1,4 @@
-package com.yyf.lagou.sortalgorithm.sort;
+package com.yyf.lagou.algorithm.sort;
 
 import java.util.ArrayList;
 import java.util.Arrays;

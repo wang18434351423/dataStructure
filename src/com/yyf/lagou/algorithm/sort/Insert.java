@@ -1,4 +1,4 @@
-package com.yyf.lagou.sortalgorithm.sort;
+package com.yyf.lagou.algorithm.sort;
 
 import java.util.Arrays;
 
@@ -7,6 +7,8 @@ import java.util.Arrays;
  *      1、直接插入排序
  *          向一个有序数列中插入新的元素，并维护有序性，从而得到一个元素数量+1的有序数列
  *      2、希尔排序
+ *          将一个无序数据，按照增量进行分组插入排序，增量每次减少，知道最后增量为1时，
+ *          进行最后一次全数列数据直接插入排序
  */
 public class Insert {
 
